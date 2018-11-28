@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="./css/tab.css">
+        <script src="./js/faceObjtab.js"></script>
+		<script type="text/javascript">
+			 window.onload = function(){
+			 	//找对象
+			 	 var t1 = new Tab("box");
+			 	 t1.init();
+			    
+			     var t2 = new ChildTab("box1")
+			     t2.init();  //点击就有效果
+			     t2.autoplay();  //自动播放
+			 } 
+		</script>
+	</head>
+	<body>
+      <div id="box">
+		<input type="button" value="btn1" />
+		<input type="button" value="btn2" />
+		<input type="button" value="btn3" />
+		<div style="display: block;">11111</div>
+		<div>22222</div>
+		<div>33333</div>
+      </div>
+     <div id="box1">
+		<input type="button" value="btn1" />
+		<input type="button" value="btn2" />
+		<input type="button" value="btn3" />
+		<input type="button" value="btn4" />
+		<div style="display: block;">蓝天</div>
+		<div>白云</div>
+		<div>大地</div>
+		<div>海洋</div>
+      </div>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				position: absolute;
+				left: 200px;
+				top: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById("box");
+				//流程：先鼠标按下oBox，紧接着 移动  移动完成以后 鼠标抬起
+				oBox.onmousedown = function(ev){
+					//在标准下 chrome（event）  ie 高版本 ： 事件对象是 事件处理函数中的第一个参数
+					//在低版本的ie下面 内置了 event
+					var ev = ev || event;
+					//当按下鼠标的时候 求出一个固定的值 ： 按下的点到 盒子的边框的距离
+					var difX = ev.clientX - oBox.offsetLeft;
+					var difY = ev.clientY - oBox.offsetTop;
+					 
+					//鼠标按下 马上要移动
+					document.onmousemove = function(ev){
+						//让当前鼠标的坐标  - 固定的那个值  ==  left
+						oBox.style.left = ev.clientX - difX + "px";
+						oBox.style.top = ev.clientY - difY + "px";
+					}
+					//移动完成以后 鼠标要抬起
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						document.onmouseup = null;
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

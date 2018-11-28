@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="./css/tab.css">
+		<script type="text/javascript">
+			 /*
+			  * 原生写法
+			  */
+			 window.onload = function(){
+			 	//找对象
+			 	var oBox = document.getElementById("box");
+			 	var aIpt = oBox.getElementsByTagName("input");
+			 	var aDiv = oBox.getElementsByTagName("div");
+			 	//批量绑定事件
+			 	for(var i=0;i<aIpt.length;i++){
+			 		//给input加一个自定义属性
+			 		aIpt[i].index = i;
+			 		aIpt[i].onclick = function(){
+			 			//alert(this.index);
+			 			for(var j=0;j<aIpt.length;j++){
+			 				aIpt[j].style.background = "white";
+			 				aDiv[j].style.display = "none";
+			 			}
+			 			aDiv[this.index].style.display = "block";
+			 			this.style.backgroundColor = "orange";
+			 		}
+			 	}
+			 }
+		</script>
+	</head>
+	<body>
+      <div id="box">
+		<input type="button" value="btn1" />
+		<input type="button" value="btn2" />
+		<input type="button" value="btn3" />
+		<div style="display: block;">11111</div>
+		<div>22222</div>
+		<div>33333</div>
+      </div>
+	</body>
+</html>

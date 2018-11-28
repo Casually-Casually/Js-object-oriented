@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <style type="text/css">
+		 	#div1{
+		 		background: red;
+		 		width: 100px;
+		 		height: 100px;
+		 		position: absolute;
+		 		left: 0px;
+		 	}
+		 	#div2{
+		 		background:yellow;
+		 		height: 100px;
+		 		width: 100px;
+		 		position: absolute;
+		 		left: 100px;
+		 	}
+		 </style>
+	</head>
+	<body>
+        <script src="./js/faceobjDrag.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var d1 = new Drag('div1');
+				d1.init();
+				var d2 = new childDrag('div2');
+				d2.init();
+				console.log(d2);
+				console.log(d2 instanceof Drag);
+				
+			}
+
+		</script>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+</html>
